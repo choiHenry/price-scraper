@@ -82,7 +82,9 @@ for i in range(2017, 2020):
     df = pd.DataFrame(data=data)
     dfs.append(df)
 
+dfs.reverse()
 df = utils.concat_n_dfs(dfs)
 df['Date'] = pd.to_datetime(df['Date'])
 print(df)
-df.to_csv('../data/silver_data.csv')
+utils.pickle_object(df, '../data/XAGUSD.pkl')
+df.to_csv('../data/XAGUSD.csv')

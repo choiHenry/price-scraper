@@ -1,4 +1,5 @@
 import pandas as pd
+from processing import utils
 
 source = "../source/Prices.xlsx"
 
@@ -11,4 +12,5 @@ dfV2['Time'] = dfV2.index
 dfV3 = dfV2[['Time', 'US dollar', 'Euro', 'Korean won']]
 dfV3.index = list(range(10596))
 print(dfV3)
-dfV3.to_csv('../data/gold_data.csv')
+dfV3.to_csv('../data/XAUUSD.csv')
+utils.pickle_object(dfV3, '../data/XAUUSD.pkl')
